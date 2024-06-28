@@ -1,10 +1,17 @@
 name: hello world
 on:
   push: 
-    branches: [main, master]
+    paths: 
+      - '!README.md' #khong chay khi co thay doi trong file readme
+      - '!docs/**' #khong chay khi co thay doi cua tat ca moi thu trong folder docs ("*": file, "**": file, folder)
+      - '**.js' #chay khi co bat cu thay doi nao trong file hay folder la javascript
+    branches: #[main, master]
+      - 'main'
+      - 'master'
+      - '!dev/**'
 jobs: 
   say-hello:
     runs-on: ubuntu-latest
     steps: 
-      - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV 
+      - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV #chuyen bien giua cac step khac nhau
       - run: echo Hello world, today is $TODAY
