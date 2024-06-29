@@ -10,6 +10,8 @@ on:
       - 'main'
       - 'master'
       - '!dev/**'
+
+  #trigger 3: chay khi co su kien pull request
   pull_request:
     types: [opened,reopened,synchronize,labeled, unlabeled]
     #paths:
