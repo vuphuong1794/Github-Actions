@@ -20,5 +20,11 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps: 
+    #dung lai ngay khong thuc hien cac buoc chay khi commit bi dan nhan do not build
+      - uses: mheap/github-action-required-labels@v5
+        with:
+          mode: exactly
+          count: 0
+          labels: "do not build"
       - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV #chuyen bien giua cac step khac nhau
       - run: echo Hello world, today is $TODAY
