@@ -10,6 +10,10 @@ on:
       - 'main'
       - 'master'
       - '!dev/**'
+  pull_request:
+    types: [opened,reopened,synchronize,labeled, unlabeled]
+    #paths:
+    #branches:
   #trigger 2: chay thu cong
   workflow_dispatch: 
 jobs: 
