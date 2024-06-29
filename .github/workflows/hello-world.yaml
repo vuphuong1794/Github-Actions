@@ -11,9 +11,7 @@ on:
       - 'master'
       - '!dev/**'
   #trigger 2: chay thu cong
-  workflow_dispatch:
-
-    
+  workflow_dispatch: 
 jobs: 
   say-hello:
     runs-on: ubuntu-latest
