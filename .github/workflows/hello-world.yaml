@@ -10,11 +10,22 @@ on:
       - 'main'
       - 'master'
       - '!dev/**'
+  #trigger 3: chay khi co su kien pull request
+  pull_request:
+    types: [opened,reopened,synchronize,labeled, unlabeled]
+    #paths:
+    #branches:
   #trigger 2: chay thu cong
   workflow_dispatch: 
 jobs: 
   say-hello:
     runs-on: ubuntu-latest
     steps: 
+    #dung lai ngay khong thuc hien cac buoc chay khi commit bi dan nhan do not build
+      - uses: mheap/github-action-required-labels@v5
+        with:
+          mode: exactly
+          count: 0
+          labels: "do not build"
       - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV #chuyen bien giua cac step khac nhau
       - run: echo Hello world, today is $TODAY
