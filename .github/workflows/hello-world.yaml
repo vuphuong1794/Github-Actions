@@ -1,5 +1,6 @@
 name: hello world
 on:
+  #trigger 1: chay khi co sư thay doi
   push: 
     paths: 
       - '!README.md' #khong chay khi co thay doi trong file readme
@@ -9,6 +10,10 @@ on:
       - 'main'
       - 'master'
       - '!dev/**'
+  #trigger 2: chay thu cong
+  workflow_dispatch:
+
+    
 jobs: 
   say-hello:
     runs-on: ubuntu-latest
