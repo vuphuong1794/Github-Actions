@@ -1,1 +1,1 @@
-ep2 about github actions
+CI/CD with github actions 
